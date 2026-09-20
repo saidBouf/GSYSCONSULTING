@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GSYS Consulting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="site-header">
+        <div class="header-container container">
+            <div class="site-branding">
+                <a href="index.html" style="font-size: 1.5rem; font-weight: bold; color: var(--title-gray); text-decoration: none;">
+                    GSYS <span class="text-brand">Consulting</span>
+                </a>
+            </div>
+            
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="index.html#formations">Formations</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="contact.html" style="color: var(--brand-green);">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION CONTACT -->
+        <section style="padding: 70px 0;">
+            <div class="container">
+                <h1 style="text-align: center; margin-bottom: 15px;">Contactez <span class="text-brand">GSYS Consulting</span></h1>
+                <p style="text-align: center; color: var(--text-gray); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Nos équipes sont à votre disposition pour planifier vos sessions de formation et répondre à vos besoins en conseil.
+                </p>
+
+                <!-- Grille Coordonnées & Formulaire -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+                    
+                    <!-- Colonne 1 : Coordonnées -->
+                    <div class="card" style="height: 100%;">
+                        <h3 class="text-brand" style="margin-bottom: 20px;">Nos Coordonnées</h3>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <strong>Siège Social :</strong>
+                            <p style="color: var(--text-gray); margin-top: 5px;">57 rue Ahmed Touki -ex Labas , résid. Ourok 1°et. n°2 Casablanca - Maroc</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <strong>Email :</strong>
+                            <p style="margin-top: 5px;"><a href="mailto:formation@gsysconsulting.ma" style="color: var(--brand-green); text-decoration: none;">formation@gsysconsulting.ma</a></p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <strong>Téléphone / WhatsApp :</strong>
+                            <p style="color: var(--text-gray); margin-top: 5px;">+212 607 17 27 37 / +212 613 11 59 07</p>
+                        </div>
+
+                  
+                    </div>
+
+                    <!-- Colonne 2 : Formulaire WhatsApp -->
+<!-- Colonne 2 : Formulaire WhatsApp mis en valeur -->
+<div class="card" style="border: 2px solid var(--brand-green); box-shadow: 0 10px 25px rgba(140, 191, 38, 0.15); background: #FFFFFF;">
+    <h3 class="text-brand" style="margin-bottom: 20px;">Envoyez-nous un message</h3>
+    
+    <form id="whatsappForm">
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: var(--title-gray);">Nom complet</label>
+            <input type="text" id="wa-nom" required style="width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 4px; box-sizing: border-box;">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: var(--title-gray);">Adresse Email</label>
+            <input type="email" id="wa-email" required style="width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 4px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: var(--title-gray);">Votre Message ou Formation souhaitée</label>
+            <textarea id="wa-message" rows="4" required style="width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 4px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer; padding: 12px; font-size: 1rem;">Envoyer sur WhatsApp</button>
+    </form>
+</div>
+
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div style="width: 100%; margin-top: 60px; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.597950798606!2d-7.620469623479185!3d33.59326734193563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d29b6c819009%3A0x2472ebbff2ca55e8!2s23%20Rue%20Ahmed%20Touki%2C%20Casablanca%2020250!5e0!3m2!1sfr!2sma!4v1711200000000!5m2!1sfr!2sma" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+
+
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background: var(--title-gray); color: #FFFFFF; padding: 30px 0; text-align: center;">
+        <div class="container">
+            <p style="margin: 0;">&copy; 2026 Gsys Consulting. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript pour basculer le formulaire vers WhatsApp -->
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nom = document.getElementById('wa-nom').value;
+            const email = document.getElementById('wa-email').value;
+            const message = document.getElementById('wa-message').value;
+
+            const numeroWhatsApp = "212607172737";
+            const texte = `*Nouvelle demande depuis la page Contact - GSYS Consulting*%0A%0A*Nom:* ${nom}%0A*Email:* ${email}%0A*Message:* ${message}`;
+
+            const url = `https://wa.me/${numeroWhatsApp}?text=${texte}`;
+            window.open(url, '_blank');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+/*
+Theme Name: GSYS Consulting
+Author: GSYS
+Description: Thème sur mesure pour GSYS Consulting.
+Version: 1.0
+*/
+
+/* ==========================================================================
+   1. VARIABLES & RESET DE BASE
+   ========================================================================== */
+:root {
+    --brand-green: #2E7D32;
+    --brand-green-hover: #1b5e20;
+    --title-gray: #374151;
+    --text-gray: #4B5563;
+    --bg-light: #F9FAFB;
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: var(--text-gray);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--title-gray);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+a {
+    color: var(--brand-green);
+    text-decoration: none;
+}
+
+.text-brand { 
+    color: var(--brand-green) !important; 
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+/* ==========================================================================
+   2. BOUTONS & CARTES
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--brand-green);
+    color: var(--white) !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--brand-green-hover);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--brand-green);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   3. EN-TÊTE & HEADER FLEX
+   ========================================================================== */
+.site-header {
+    background: var(--white);
+    padding: 15px 0;
+    border-bottom: 3px solid var(--brand-green);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ==========================================================================
+   4. NAVIGATION DESKTOP
+   ========================================================================== */
+.main-navigation ul,
+.nav-menu {
+    display: flex !important;
+    flex-direction: row;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 25px;
+}
+
+.main-navigation li {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation a {
+    color: var(--title-gray) !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.main-navigation a:hover {
+    color: var(--brand-green) !important;
+}
+
+/* Caché sur écran PC */
+.menu-toggle {
+    display: none;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE MOBILE (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .menu-toggle .bar {
+        height: 3px;
+        width: 100%;
+        background-color: var(--title-gray);
+        border-radius: 2px;
+    }
+
+    .main-navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        padding: 20px 0;
+        border-bottom: 3px solid var(--brand-green);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .main-navigation.is-active {
+        display: block;
+    }
+
+    .main-navigation ul,
+    .nav-menu {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 15px;
+    }
+}
