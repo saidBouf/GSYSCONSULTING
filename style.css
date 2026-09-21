@@ -2,7 +2,7 @@
 Theme Name: GSYS Consulting
 Author: GSYS
 Description: Thème sur mesure pour GSYS Consulting.
-Version: 1.0
+Version: 1.1 (responsive + menu hamburger)
 */
 
 /* ==========================================================================
@@ -18,8 +18,13 @@ Version: 1.0
 }
 
 * {
-    box-sizing: border-border-box;
     box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    /* Les liens d'ancre (#formations, #contact…) ne passent pas sous l'en-tête fixe */
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -29,6 +34,12 @@ body {
     padding: 0;
     line-height: 1.6;
     background-color: var(--white);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,18 +54,18 @@ a {
     text-decoration: none;
 }
 
-.text-brand { 
-    color: var(--brand-green) !important; 
+.text-brand {
+    color: var(--brand-green) !important;
 }
 
-.text-center { 
-    text-align: center; 
+.text-center {
+    text-align: center;
 }
 
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* ==========================================================================
@@ -77,9 +88,16 @@ a {
     background-color: var(--brand-green-hover);
 }
 
+.btn-block {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+}
+
+/* min(300px, 100%) : les cartes ne dépassent jamais l'écran sur les petits téléphones */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 25px;
     margin-top: 40px;
 }
@@ -90,11 +108,58 @@ a {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     border-top: 4px solid var(--brand-green);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-3px);
+}
+
+.card p {
+    margin-top: 10px;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+}
+
+.card-cta {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--brand-green);
+    font-size: 0.9rem;
+}
+
+.card--glass {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.card--green {
+    background: var(--brand-green);
+    color: #FFFFFF;
+}
+
+.card--green h3 {
+    color: #FFFFFF;
+}
+
+.card--green p {
+    color: #F3F4F6;
+}
+
+.card--green .card-note {
+    display: inline-block;
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    opacity: 0.9;
 }
 
 /* ==========================================================================
@@ -114,6 +179,13 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.site-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--title-gray);
+    text-decoration: none;
 }
 
 /* ==========================================================================
@@ -147,34 +219,193 @@ a {
     color: var(--brand-green) !important;
 }
 
-/* Caché sur écran PC */
+/* Bouton hamburger : caché sur ordinateur */
 .menu-toggle {
     display: none;
 }
 
 /* ==========================================================================
-   5. RESPONSIVE MOBILE (< 768px)
+   5. SECTIONS DE LA PAGE
+   ========================================================================== */
+.section {
+    padding: 70px 0;
+}
+
+.section--light {
+    background: var(--bg-light);
+}
+
+.section-intro {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    color: var(--text-gray);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero.png') center/cover no-repeat;
+    padding: 120px 0;
+    text-align: center;
+    border-bottom: 4px solid var(--brand-green);
+}
+
+/* Photo d'accueil « mobile » : cachée sur ordinateur (l'image est alors en fond de section) */
+.hero-photo {
+    display: none;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #E5E7EB;
+}
+
+.hero-stats {
+    margin-top: 60px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.stat-text {
+    margin-top: 10px;
+    color: var(--text-gray);
+}
+
+/* Formulaire de contact */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--title-gray);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem; /* 16px : évite le zoom automatique sur iPhone */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--brand-green);
+    outline-offset: 1px;
+    border-color: var(--brand-green);
+}
+
+.contact-info {
+    margin-top: 40px;
+    color: var(--text-gray);
+    overflow-wrap: anywhere;
+}
+
+/* Pied de page */
+.site-footer {
+    background: var(--title-gray);
+    color: #FFFFFF;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE TABLETTE (< 992px)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+}
+
+/* ==========================================================================
+   7. RESPONSIVE MOBILE (< 768px) — MENU HAMBURGER
    ========================================================================== */
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    .site-header {
+        padding: 10px 0;
+    }
+
+    .site-logo {
+        font-size: 1.25rem;
+    }
+
+    /* Bouton hamburger (zone de toucher de 44 px) */
     .menu-toggle {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        width: 28px;
-        height: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
         background: transparent;
         border: none;
+        border-radius: 6px;
         cursor: pointer;
         padding: 0;
     }
 
-    .menu-toggle .bar {
-        height: 3px;
-        width: 100%;
-        background-color: var(--title-gray);
-        border-radius: 2px;
+    .menu-toggle:focus-visible {
+        outline: 2px solid var(--brand-green);
+        outline-offset: 2px;
     }
 
+    .menu-toggle .bar {
+        display: block;
+        height: 3px;
+        width: 26px;
+        background-color: var(--title-gray);
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    /* Le hamburger devient une croix quand le menu est ouvert */
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menu déroulant sous l'en-tête */
     .main-navigation {
         display: none;
         position: absolute;
@@ -182,9 +413,11 @@ a {
         left: 0;
         right: 0;
         background-color: var(--white);
-        padding: 20px 0;
+        padding: 10px 0 20px;
         border-bottom: 3px solid var(--brand-green);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .main-navigation.is-active {
@@ -194,7 +427,110 @@ a {
     .main-navigation ul,
     .nav-menu {
         flex-direction: column !important;
-        align-items: center;
-        gap: 15px;
+        align-items: stretch;
+        gap: 0;
+        text-align: center;
+    }
+
+    .main-navigation a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 1.05rem;
+    }
+
+    .main-navigation li + li {
+        border-top: 1px solid #EEF0F3;
+    }
+
+    /* Contenu de la page */
+    .container {
+        padding: 0 16px;
+    }
+
+    .section {
+        padding: 45px 0;
+    }
+
+    /* Photo entière en haut, texte et chiffres en dessous : les personnes restent visibles */
+    .hero-section {
+        background: #1F2937;
+        padding: 0 0 45px;
+    }
+
+    .hero-photo {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 340px;
+        object-fit: cover;
+        object-position: center 30%; /* si la photo est très haute, on garde le haut (visages) */
+    }
+
+    .hero-section .container {
+        padding-top: 32px;
+    }
+
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    /* Vert plus clair sur le fond sombre : le mot reste bien lisible */
+    .hero-title .text-brand {
+        color: #81C784 !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-stats {
+        margin-top: 40px;
+    }
+
+    .grid {
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .stat-number {
+        font-size: 1.7rem;
+    }
+
+    .btn {
+        padding: 12px 22px;
+    }
+}
+
+/* ==========================================================================
+   8. TRÈS PETITS ÉCRANS (< 400px)
+   ========================================================================== */
+@media (max-width: 400px) {
+    .site-logo {
+        font-size: 1.1rem;
+    }
+
+    .hero-title {
+        font-size: 1.65rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Respecte le réglage « réduire les animations » du système */
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .menu-toggle .bar {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
     }
 }
